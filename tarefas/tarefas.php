@@ -1,3 +1,4 @@
+<?php session_start() ;?>
 <!DOCTYPE html>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -5,6 +6,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilo.css">
     <title>Gerenciador de Tarefas</title>
 </head>
 <body>
@@ -19,22 +21,29 @@
             <input type="submit" value="cadastrar" id="cadastrar">
         </fieldset>
     </form>
-    <?php
-        $lista_tarefas = [];
 
-        if (array_key_exists('nome',$_GET)) {
-            $lista_tarefas[] = $_GET['nome'];
-        }
-    ?>    
-        <table>
+    <?php
+    if (array_key_exists('nome', $_GET)){ 
+        $_SESSION['lista_tarefas'][] = $_GET['nome'];
+    }
+
+    print_r($_SESSION['lista_tarefas']);
+    $lista_tarefas = [];
+
+    if (array_key_exists('lista_tarefas', $_SESSION)){
+        $lista_tarefas  = $_SESSION['lista_tarefas'];
+    }
+?>
+    <table>
             <tr>
                 <th>Tarefas</th>
             </tr>    
                 <?php foreach ($lista_tarefas as $tarefa):?>
                     <tr>
-                        <td><?php echo $tarefa ?></td>
+                        <td><?php echo $tarefa ;?></td>
                     </tr>
                 <?php endforeach; ?>
-        </table>
+    </table>
+
 </body>
 </html>
