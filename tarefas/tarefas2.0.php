@@ -33,20 +33,22 @@
 
     <?php
 
-    if (array_key_exists('nome', $_GET)) {
-        $_COOCKIE['lista_tarefas'][] = $_GET['nome'];
+    if (array_key_exists('nome',$_GET)) {
+        $_SESSION['lista'][] = $_GET['nome'];
     }
-    if (array_Key_exists('prioridade', $_GET)) {
-        $_COOCKIE['lista_tarefas'][] = $_GET['prioridade'];
+    if (array_key_exists('prioridade',$_GET)) {
+        $_SESSION['lista'][] = $_GET['prioridade'];
     }
-    if (array_key_exists('data', $_GET)) {
-        $_COOCKIE['lista_tarefas'][] = $_GET['data'];
+    if (array_key_exists('data',$_GET)) {
+        $_SESSION['lista'][] = $_GET['data'];
     }
-    print_r($_COOKIE);
 
-    setcookie('nome', $_COOCKIE, time() + 3600);
+    $_COOKIE = $_SESSION;
+
     ?>
-
+    <pre>
+        <?php var_dump($_COOKIE); ?>
+    </pre>
     <table>
         <tr>
             <th>TAREFA</th>
@@ -54,9 +56,9 @@
             <th>DATA</th>
         </tr>
         <tr>
-            <?php /* foreach($lista_tarefas as $tarefas) :?>
-                    <td><?php echo $tarefas;?></td>
-                <?php endforeach */; ?>
+            <?php foreach($_COOKIE as $tarefas) :?>
+                    <td><?php echo $tarefas ;?></td>
+            <?php endforeach;?>
         </tr>
 
     </table>

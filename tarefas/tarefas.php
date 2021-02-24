@@ -1,49 +1,48 @@
-<?php session_start() ;?>
-<!DOCTYPE html>
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="estilo.css">
-    <title>Gerenciador de Tarefas</title>
-</head>
-<body>
-    <h1>Gerenciador de Tarefas</h1>
-    <form action="">
-        <fieldset>
-            <legend>Nova tarefa</legend>
-            <label for="Tarefa">
-                Tarefa:
-                <input type="text" name="nome" id="nome">
-            </label>
-            <input type="submit" value="cadastrar" id="cadastrar">
-        </fieldset>
-    </form>
+<?php
+session_start();
+#vefiricar se o indece 'nome' existe em $_GET
+if (array_key_exists('nome', $_GET) and $_GET['nome'] != '') {
+    $tarefa = [];
 
-    <?php
-    if (array_key_exists('nome', $_GET)){ 
-        $_SESSION['lista_tarefas'][] = $_GET['nome'];
+    $tarefa['nome'] = $_GET['nome'];
+
+    #verificar se o índice 'descricao' existe em $_GET
+    if (array_key_exists('descricao',$_GET)) {
+        $tarefa['descricao'] = $_GET['descricao'];
+    }else {
+        $tarefa['descricao'] = '';
     }
 
-    print_r($_SESSION['lista_tarefas']);
-    $lista_tarefas = [];
-
-    if (array_key_exists('lista_tarefas', $_SESSION)){
-        $lista_tarefas  = $_SESSION['lista_tarefas'];
+    #verificar se o índice 'prazo' existe em $_GET
+    if (array_key_exists('prazo',$_GET)) {
+        $tarefa['prazo'] = $_GET['prazo'];
+    } else {
+        $tarefa['prazo'] = '';
     }
+
+    #índice 'prioridade' 
+    $tarefa['prioridade'] = $_GET['prioridade'];
+
+    #verificar se o índice 'concluída' existe em $_GET
+    if (array_key_exists('concluida',$_GET)) {
+        $tarefa['concluida'] = $_GET['concluida'];
+    } else {
+        $tarefa['concluida'] =  '';
+    }
+    
+    #$_SESSION vai receber tarefas
+    $_SESSION['lista_tarefas'][] = $tarefa;
+}
+
+#print_r($_SESSION['lista_tarefas']);
+$lista_tarefas = [];
+
+if (array_key_exists('lista_tarefas', $_SESSION)) {
+    $lista_tarefas  = $_SESSION['lista_tarefas'];
+}
+
+#chamar o arquivo fomrulario.php
+include "formulario.php";
+#chamar o arquivo template.php
+include "template.php";
 ?>
-    <table>
-            <tr>
-                <th>Tarefas</th>
-            </tr>    
-                <?php foreach ($lista_tarefas as $tarefa):?>
-                    <tr>
-                        <td><?php echo $tarefa ;?></td>
-                    </tr>
-                <?php endforeach; ?>
-    </table>
-
-</body>
-</html>
