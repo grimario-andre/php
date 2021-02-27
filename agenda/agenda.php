@@ -52,6 +52,8 @@
         }
     } 
 
+    #chamr o arquivo formulario.php
+    include "formulario.php";
     #chamar o arquivo template.php
     include "template.php";
 ?>

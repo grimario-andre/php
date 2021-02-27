@@ -1,6 +1,5 @@
-<?php session_start(); ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
@@ -30,38 +29,6 @@
             <input type="submit" value="cadastrar">
         </fieldset>
     </form>
-
-    <?php
-
-    if (array_key_exists('nome',$_GET)) {
-        $_SESSION['lista'][] = $_GET['nome'];
-    }
-    if (array_key_exists('prioridade',$_GET)) {
-        $_SESSION['lista'][] = $_GET['prioridade'];
-    }
-    if (array_key_exists('data',$_GET)) {
-        $_SESSION['lista'][] = $_GET['data'];
-    }
-
-    $_COOKIE = $_SESSION;
-
-    ?>
-    <pre>
-        <?php var_dump($_COOKIE); ?>
-    </pre>
-    <table>
-        <tr>
-            <th>TAREFA</th>
-            <th>PRIORIDADE</th>
-            <th>DATA</th>
-        </tr>
-        <tr>
-            <?php foreach($_COOKIE as $tarefas) :?>
-                    <td><?php echo $tarefas ;?></td>
-            <?php endforeach;?>
-        </tr>
-
-    </table>
 </body>
 
 </html>
