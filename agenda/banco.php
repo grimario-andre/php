@@ -30,11 +30,12 @@ function buscar_tarefas($conexao)
 function gravar_contato($conexao,$agenda)
 {
     $SQLgravar = "INSERT INTO tb_contato(nome,telefone,descricao,nascimento)
-                        VALUES ( 
-                            '{$agenda['nome']}',
-                            '{$agenda['telefone']}',
-                            '{$agenda['descricao']}',
-                            '{$agenda['nascimento']}'
-                        )";
-    mysqli_query($conexao, $SQLgravar);
+    VALUES ( 
+               '{$agenda['nome']}',
+               '{$agenda['telefone']}',
+               '{$agenda['descricao']}',
+               '{$agenda['nascimento']}'
+            )";
+            
+    mysqli_query($conexao,$SQLgravar);   
 }

@@ -43,4 +43,14 @@ function traduz_data_para_exibir($data){
 
     print_r($data_exibir);
 }
+
+#função para exibir concluída sim ou não.
+function traduz_para_sim_ou_nao($concluida){
+    if ($concluida == 1) {
+        $exibi = "sim";
+    }else{
+        $exibi = "não";
+    }
+    echo $exibi;
+}
 ?>

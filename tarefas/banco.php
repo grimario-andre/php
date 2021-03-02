@@ -30,12 +30,13 @@ function buscar_tarefas($conexao)
 #Gravar tarefas
 function gravar_tarefa($conexao, $tarefa)
 {
-    $SQLgravar = "INSERT INTO tb_tarefa(nome,descricao,prioridade,prazo)
+    $SQLgravar = "INSERT INTO tb_tarefa(nome,descricao,prioridade,prazo,concluida)
         VALUES(
                 '{$tarefa['nome']}',
                 '{$tarefa['descricao']}',
                  {$tarefa['prioridade']},
-                 '{$tarefa['prazo']}'
+                 '{$tarefa['prazo']}',
+                 {$tarefa['concluida']}
                 )";
 
     mysqli_query($conexao, $SQLgravar);

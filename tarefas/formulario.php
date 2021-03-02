@@ -37,7 +37,7 @@
             </fieldset>
             <label for="concluida">
                 Tarefa concluída:
-                <input type="checkbox" name="concluida" id="concluida" value="sim">
+                <input type="checkbox" name="concluida" id="concluida" value="1">
             </label>
             <input type="submit" value="cadastrar" id="cadastrar">
         </fieldset>

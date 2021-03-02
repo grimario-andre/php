@@ -28,9 +28,9 @@ if (array_key_exists('nome', $_GET) and $_GET['nome'] != '') {
 
     #verificar se o índice 'concluída' existe em $_GET
     if (array_key_exists('concluida',$_GET)) {
-        $tarefa['concluida'] = $_GET['concluida'];
+        $tarefa['concluida'] = 1;
     } else {
-        $tarefa['concluida'] =  '';
+        $tarefa['concluida'] = 0;
     }
     
     gravar_tarefa($conexao,$tarefa);

@@ -25,7 +25,7 @@
                 <td><?php echo $tarefa['descricao']; ?></td>
                 <td><?php traduz_data_para_exibir($tarefa['prazo']); ?></td>
                 <td><?php traduz_prioridade($tarefa['prioridade']); ?></td>
-                <td><?php echo $tarefa['concluida']; ?></td>
+                <td><?php traduz_para_sim_ou_nao($tarefa['concluida']);?></td>
             </tr>
         <?php endforeach; ?>
     </table>
