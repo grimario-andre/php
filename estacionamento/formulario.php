@@ -19,7 +19,7 @@
                 Placa: <input type="text" name="placa" id="placa" maxlength="7">
             </label>
             <label for="marca">
-                Marca: <input type="text" name="maraca" id="marca" maxlength="">
+                Marca: <input type="text" name="marca" id="marca" maxlength="">
             </label>
             <label for="modelo">
                 Modelo: <input type="text" name="modelo" id="modelo" maxlength="15">
@@ -34,6 +34,9 @@
                     Saída: <input type="time" name="saida" id="saida">
                 </label>
             </fieldset>
+            <label for="">
+                <input type="submit" value="cadastrar">
+            </label>
         </fieldset>
     </form>
 </body>

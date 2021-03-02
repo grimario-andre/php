@@ -1,5 +1,9 @@
 <?php
     session_start();
+    require "banco.php";
+    require "ajudantes.php";
+    #chamar o arquivo formulario.php
+    require "formulario.php";
     $agenda = [];
     #Verificar se o índice nome existe em $_GET
     if (array_key_exists('nome', $_GET)) {
@@ -25,10 +29,10 @@
             $agenda['descricao'] = '';
         }
         
-        if (array_key_exists('data',$_GET)) {
-            $agenda['data'] = $_GET['data'];
+        if (array_key_exists('nascimento',$_GET)) {
+            $agenda['nascimento'] = traduz_data_para_banco($_GET['nascimento']);
         } else {
-            $agenda['data'] = '';
+            $agenda['nascimento'] = '';
         }
         
         if (array_key_exists('favorito',$_GET)) {
@@ -37,23 +41,12 @@
             $agenda['favorito'] = '';
         }
 
-        #$_SESSION vai receber o array $agenda
-        $_SESSION['lista_contatos'][] = $agenda;
-    }else{
-        echo "Não é possível adicionar um contatinho sem nome. ";
+       gravar_contato($conexao,$agenda);
     }
 
     #criar array lista_contatos
-    $lista_contatos = [];
+    $lista_contatos = buscar_tarefas($conexao);
 
-    if (isset($lista_contatos)) {
-        if (array_key_exists('lista_contatos', $_SESSION)) {
-            $lista_contatos = $_SESSION['lista_contatos']; 
-        }
-    } 
-
-    #chamr o arquivo formulario.php
-    include "formulario.php";
     #chamar o arquivo template.php
     include "template.php";
 ?>

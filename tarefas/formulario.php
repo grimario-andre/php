@@ -30,9 +30,9 @@
             <fieldset>
                 <legend>Prioridade:</legend>
                 <label for="prioridade">
-                    <input type="radio" name="prioridade" id="prioridade" value="baixa" checked> Baixa
-                    <input type="radio" name="prioridade" id="prioridade" value="media"> Média
-                    <input type="radio" name="prioridade" id="prioridade" value="alta"> Alta
+                    <input type="radio" name="prioridade" id="prioridade" value="1" checked> Baixa
+                    <input type="radio" name="prioridade" id="prioridade" value="2"> Média
+                    <input type="radio" name="prioridade" id="prioridade" value="3"> Alta
                 </label>
             </fieldset>
             <label for="concluida">

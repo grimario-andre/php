@@ -28,9 +28,9 @@
                     Descrição (Opicional):
                     <textarea name="descricao" id="descricao" cols="30" rows="10"></textarea>
                 </label>
-                <label for="data">
+                <label for="nascimento">
                     Data de Nascimento:
-                    <input type="date" name="data" id="data">
+                    <input type="date" name="nascimento" id="nascimento">
                 </label>
                 <label for="favorito">
                     Salvar como favorito?
