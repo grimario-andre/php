@@ -27,7 +27,7 @@
                 <td><?php echo $contatinhos['email']; ?></td>
                 <td><?php echo $contatinhos['descricao']; ?></td>
                 <td><?php traduz_data_para_exibir($contatinhos['nascimento']);?></td>
-                <td><?php echo $contatinhos['favorito']; ?></td>
+                <td><?php exibi_marcado_favorito($contatinhos['favorito']); ?></td>
             </tr>
         <?php endforeach; ?>
     </table>

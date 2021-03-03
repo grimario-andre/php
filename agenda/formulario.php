@@ -34,7 +34,7 @@
                 </label>
                 <label for="favorito">
                     Salvar como favorito?
-                    <input type="checkbox" name="favorito" id="favorito" value="sim" checked>
+                    <input type="checkbox" name="favorito" id="favorito" value="1" checked>
                 </label>
             </fieldset>
             <label>

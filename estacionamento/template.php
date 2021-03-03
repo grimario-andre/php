@@ -18,13 +18,13 @@
             <th>Entrada</th>
             <th>Saída</th>
         </tr>
-        <?php foreach($lista_vaga as $vagas) :?>
+        <?php foreach($lista_vagas as $vagas) :?>
             <tr>
                 <td><?php echo $vagas['placa'];?></td>
                 <td><?php echo $vagas['marca'];?></td>
                 <td><?php echo $vagas['modelo'];?></td>
-                <td><?php echo $vagas['entrada'];?></td>
-                <td><?php echo $vagas['saida'];?></td>
+                <td><?php echo $vagas['hentrada'];?></td>
+                <td><?php echo $vagas['hsaida'];?></td>
             </tr>
         <?php endforeach ;?>
     </table>

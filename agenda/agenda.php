@@ -36,9 +36,9 @@
         }
         
         if (array_key_exists('favorito',$_GET)) {
-            $agenda['favorito'] = $_GET['favorito'];
+            $agenda['favorito'] = 1;
         } else {
-            $agenda['favorito'] = '';
+            $agenda['favorito'] = 0;
         }
 
        gravar_contato($conexao,$agenda);

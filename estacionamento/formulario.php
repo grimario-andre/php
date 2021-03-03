@@ -16,7 +16,7 @@
         <fieldset>
             <legend>Informações do Veículo</legend>
             <label for="placa">
-                Placa: <input type="text" name="placa" id="placa" maxlength="7">
+                Placa: <input type="text" name="placa" id="placa" maxlength="8">
             </label>
             <label for="marca">
                 Marca: <input type="text" name="marca" id="marca" maxlength="">

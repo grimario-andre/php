@@ -1,7 +1,6 @@
 <?php
 #função traduz prioridade.
-function traduz_prioridade($codigo)
-{
+function traduz_prioridade($codigo){
     $prioridade = '';
     switch ($codigo) {
         case 1:
