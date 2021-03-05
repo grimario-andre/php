@@ -11,24 +11,10 @@
 </head>
 
 <body>
-    <table>
-        <tr>
-            <th>Tarefas</th>
-            <th>Descrição</th>
-            <th>Prazo</th>
-            <th>Prioridade</th>
-            <th>Concluída</th>
-        </tr>
-        <?php foreach ($lista_tarefas as $tarefa) : ?>
-            <tr>
-                <td><?php echo $tarefa['nome']; ?></td>
-                <td><?php echo $tarefa['descricao']; ?></td>
-                <td><?php traduz_data_para_exibir($tarefa['prazo']); ?></td>
-                <td><?php traduz_prioridade($tarefa['prioridade']); ?></td>
-                <td><?php traduz_para_sim_ou_nao($tarefa['concluida']);?></td>
-            </tr>
-        <?php endforeach; ?>
-    </table>
+    <?php require 'formulario.php'; ?>
+    <?php if ($exibir_tabela) : ?>
+        <?php require 'tabela.php'; ?>
+    <?php endif; ?>
 </body>
 
 </html>

@@ -41,3 +41,24 @@ function gravar_tarefa($conexao, $tarefa)
 
     mysqli_query($conexao, $SQLgravar);
 }
+
+#buscar tarefa
+function buscar_tarefa($conexao,$id){
+    $SQLbusca = "SELECT * FROM tb_tarefa where id = $id";
+    $SQLresultado = mysqli_query($conexao,$SQLbusca);
+    return mysqli_fetch_assoc($SQLresultado);
+}
+
+#editar tarefas
+function editar_tarefa($conexao,$tarefa){
+    $SQLeditar =  "UPDATE tb_tarefa SET 
+        nome = '{$tarefa['nome']}',
+        descricao = '{$tarefa['descricao']}',
+        prioridade = {$tarefa['prioridade']},
+        prazo = '{$tarefa['prazo']}',
+        concluida = {$tarefa['concluida']}
+            WHERE id = {$tarefa['id']}
+        ";
+
+    mysqli_query($conexao,$SQLeditar);
+}

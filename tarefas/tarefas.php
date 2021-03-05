@@ -2,7 +2,9 @@
 session_start();
 require "banco.php";
 require "ajudantes.php";
-require "formulario.php";
+
+$exibir_tabela = false;
+
 #vefiricar se o indece 'nome' existe em $_GET
 if (array_key_exists('nome', $_GET) and $_GET['nome'] != '') {
     $tarefa = [];
@@ -38,7 +40,14 @@ if (array_key_exists('nome', $_GET) and $_GET['nome'] != '') {
 
 $lista_tarefas = buscar_tarefas($conexao);
 
+$tarefa = [
+    'id' => 0,
+    'nome' => '',
+    'descricao' => '',
+    'prazo' => '',
+    'prioridade' => 1,
+    'concluida' => ''
+];
 
-#chamar o arquivo template.php
-include "template.php";
+require "template.php";
 ?>

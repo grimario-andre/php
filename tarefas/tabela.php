@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciador de tarefas</title>
+</head>
+
+<body>
+    <table>
+        <tr>
+            <th>Tarefa</th>
+            <th>Descrição</th>
+            <th>Prazo</th>
+            <th>Prioridade</th>
+            <th>Concluída</th>
+            <th>Opções</th>
+        </tr>
+        <?php foreach ($lista_tarefas as $tarefa) : ?>
+            <tr>
+                <td><?php echo $tarefa['nome']; ?></td>
+                <td><?php echo $tarefa['descricao']; ?></td>
+                <td><?php echo $tarefa['prazo']; ?></td>
+                <td><?php echo $tarefa['prioridade']; ?></td>
+                <td><?php echo traduz_para_sim_ou_nao($tarefa['concluida']); ?></td>
+                <td><a 
+                        href="editar.php?id=<?php echo $tarefa['id']; ?>">
+                        Editar
+                    </a>
+                </td>
+            </tr>
+        <?php endforeach; ?>
+    </table>
+</body>
+
+</html>
