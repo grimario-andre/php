@@ -21,8 +21,8 @@
     }
     
     #chamar o arquivo template2.0.php
-    include "formulario2.0.php";
+    include "view/formulario2.0.php";
     #chamar o arquivo template2.0.php
-    include "template2.0.php";
+    include "view/template2.0.php";
 ?>
   

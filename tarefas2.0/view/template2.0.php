@@ -25,7 +25,6 @@
                     <td><?php echo $tarefas['data'];?></td>
             <?php endforeach;?>
         </tr>
-
     </table>
 </body>
 

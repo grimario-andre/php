@@ -14,31 +14,36 @@
     <form action="">
         <fieldset>
             <legend>Novo contato</legend>
+            <label>
+                <input type="hidden" name="id" id="id" value="<?php echo $contato['id']; ?>">
+            </label>
             <label for="nome">
-                Contato: <input type="text" name="nome" id="nome">
+                Contato: <input type="text" name="nome" id="nome" value="<?php echo $contato['nome']; ?>">
             </label>
             <label for="telefone">
-                Telefone: <input type="tel" name="telefone" id="telefone" maxlength="15">
+                Telefone: <input type="tel" name="telefone" id="telefone" maxlength="15" value="<?php echo $contato['telefone']; ?>">
             </label>
             <label for="email">
-                Email: <input type="email" name="email" id="email" maxlength="75">
+                Email: <input type="email" name="email" id="email" maxlength="75" value="<?php echo $contato['email']; ?>">
             </label>
             <fieldset>
                 <label for="descricao">
                     Descrição (Opicional):
-                    <textarea name="descricao" id="descricao" cols="30" rows="10"></textarea>
+                    <textarea name="descricao" id="descricao" cols="30" rows="10">
+                    <?php echo $contato['descricao']; ?>
+                    </textarea>
                 </label>
                 <label for="nascimento">
                     Data de Nascimento:
-                    <input type="date" name="nascimento" id="nascimento">
+                    <input type="date" name="nascimento" id="nascimento" value="<?php echo traduz_data_para_exibir($contato['nascimento']);?>">
                 </label>
                 <label for="favorito">
                     Salvar como favorito?
-                    <input type="checkbox" name="favorito" id="favorito" value="1" checked>
+                    <input type="checkbox" name="favorito" id="favorito" value="1" <?php echo ($contato['favorito'] == 1) ? 'checked': '' ?>>
                 </label>
             </fieldset>
             <label>
-                <input type="submit" value="salvar" id="salvar">
+                <input type="submit" id="salvar" value="<?php echo ($contato['id'] > 0) ? 'atualizar' : 'cadastrar'; ?>">
             </label>
 
         </fieldset>

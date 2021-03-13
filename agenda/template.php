@@ -10,27 +10,10 @@
 </head>
 
 <body>
-    <table>
-        <tr>
-            <th>Nome</th>
-            <th>Telefone</th>
-            <th>E-mail</th>
-            <th>Descrição</th>
-            <th>Nascimento</th>
-            <th>Favorito</th>
-        </tr>
-
-        <?php foreach ($lista_contatos as $contatinhos) : ?>
-            <tr>
-                <td><?php echo $contatinhos['nome']; ?></td>
-                <td><?php echo $contatinhos['telefone']; ?></td>
-                <td><?php echo $contatinhos['email']; ?></td>
-                <td><?php echo $contatinhos['descricao']; ?></td>
-                <td><?php traduz_data_para_exibir($contatinhos['nascimento']);?></td>
-                <td><?php exibi_marcado_favorito($contatinhos['favorito']); ?></td>
-            </tr>
-        <?php endforeach; ?>
-    </table>
+    <?php require "formulario.php"; ?>
+    <?php if($exibir_tabela): ?>
+        <?php require "tabela.php"; ?>
+    <?php endif ;?>
 </body>
 
 </html>
