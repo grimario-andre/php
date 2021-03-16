@@ -26,8 +26,11 @@ if (tem_post()) {
     }
 
     #verificar se o índice 'prazo' existe em $_GET
-    if (array_key_exists('prazo',$_POST) and strlen($_POST['prazo'] > 0)) {
-        if(validar_data($_POST['prazo'])){
+    if (array_key_exists('prazo',$_POST) and strlen($_POST['prazo']) > 0) { 
+        /*necessário adicionar função traduzparaexibir e assim entrar no padrao solicitado pela função 
+        validadata */
+        $_POST['prazo'] = traduz_data_para_exibir($_POST['prazo']);
+        if(validar_data($_POST['prazo'])){  
             $tarefa['prazo'] = traduz_data_para_banco($_POST['prazo']);
         }else{
             $tem_erros =  true;
@@ -50,7 +53,7 @@ if (tem_post()) {
     #gravar dados caso não haje erros.
     if (! $tem_erros) {
         gravar_tarefa($conexao,$tarefa);
-        header('Location: tarefas.php');
+        header('Location: index.php');
         die();
     }
 }

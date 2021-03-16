@@ -35,7 +35,8 @@
             </label>
             <label for="prazo">
                 Prazo (Opcional): 
-                <?php if($tem_erros and array_key_exists('prazo',$_POST)): ?>
+                <?php 
+                    if($tem_erros and array_key_exists('prazo',$erros_validacao)): ?>
                     <span class="erro">
                         <?php echo $erros_validacao['prazo']; ?>
                     </span>

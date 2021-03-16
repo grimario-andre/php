@@ -43,7 +43,7 @@ function traduz_data_para_exibir($data){
         return $data;
     }
     $objeto_data = DateTime::createFromFormat('Y-m-d',$data);
-    return $objeto_data->format('d-m-Y');
+    return $objeto_data->format('d/m/Y');
 }
 
 #função para exibir concluída sim ou não.
@@ -66,17 +66,23 @@ function tem_post(){
 }
 
 function validar_data($data){
-    $padrao = '/^[0,9]{1,2}\/[0,9]{1,2}\/[0,9]{4}$/';
+    $padrao = '/^[0-9]{1,2}\/[0-9]{1,2}\/[0-9]{4}$/';
     $resultado = preg_match($padrao,$data); # função compara se o texto bate com o padrão.
 
     if ($resultado == 0) {
         return false;
     }
 
-    $dados = explode("/",$data);
+    $dados = explode('/',$data);
     $dia = $dados[0];
     $mes = $dados[1];
     $ano = $dados[2];
+
+    #regra de nogócio, o prazo para concluír a tarefa será até um ano.
+    $objeto_data = Date('Y');
+    if($ano < $objeto_data or $ano > $objeto_data){
+        return false;
+    }
 
     #usar funcção para checar se a data é válida.
     $resultado = checkdate($mes,$dia,$ano);

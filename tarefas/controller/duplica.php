@@ -5,5 +5,5 @@
 
     gravar_tarefa($conexao,$duplica);
 
-    header('Location: ../tarefas.php');
+    header('Location: ../index.php');
 ?>
