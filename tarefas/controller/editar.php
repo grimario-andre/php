@@ -62,5 +62,5 @@ $tarefa['prioridade'] = (array_key_exists('prioridade', $_POST))
 $tarefa['concluida'] =  (array_key_exists('concluida', $_POST)) 
     ? $_POST['concluida'] : $tarefa['concluida'];
 
-    var_dump($tarefa);
+    #var_dump($tarefa);
     require "../view/template.php";

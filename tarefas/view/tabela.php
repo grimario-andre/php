@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
@@ -22,7 +22,11 @@
         </tr>
         <?php foreach ($lista_tarefas as $tarefa) : ?>
             <tr>
-                <td><?php echo $tarefa['nome']; ?></td>
+                <td>
+                    <a href="controller/tarefa.php?id=<?php echo $tarefa['id']; ?>">
+                        <?php echo $tarefa['nome']; ?>
+                    </a>
+                </td>
                 <td><?php echo $tarefa['descricao']; ?></td>
                 <td><?php echo traduz_data_para_exibir($tarefa['prazo']); ?></td>
                 <td><?php echo $tarefa['prioridade']; ?></td>
