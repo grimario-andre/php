@@ -89,4 +89,18 @@ function validar_data($data){
 
     return ($resultado);
 }
+
+#tratamento para anexos
+function tratar_anexo($anexo){
+    $padrao = '/^.+(\.pdf|\.zip)$/';
+    $resultado = preg_match($padrao, $anexo['name']);
+
+    if ($resultado == 0) {
+        return false;
+    }
+
+    move_uploaded_file($anexo['tpm_name'], "../anexos/{$anexo['name']}");
+
+    return true;
+}
 ?>
