@@ -43,14 +43,16 @@ function gravar_tarefa($conexao, $tarefa)
 }
 
 #buscar tarefa
-function buscar_tarefa($conexao,$id){
+function buscar_tarefa($conexao, $id)
+{
     $SQLbusca = "SELECT * FROM tb_tarefa where id = $id";
-    $SQLresultado = mysqli_query($conexao,$SQLbusca);
+    $SQLresultado = mysqli_query($conexao, $SQLbusca);
     return mysqli_fetch_assoc($SQLresultado);
 }
 
 #editar tarefas
-function editar_tarefa($conexao,$tarefa){
+function editar_tarefa($conexao, $tarefa)
+{
     $SQLeditar =  "UPDATE tb_tarefa SET 
         nome = '{$tarefa['nome']}',
         descricao = '{$tarefa['descricao']}',
@@ -60,12 +62,41 @@ function editar_tarefa($conexao,$tarefa){
             WHERE id = {$tarefa['id']}
         ";
 
-    mysqli_query($conexao,$SQLeditar);
+    mysqli_query($conexao, $SQLeditar);
 }
 
 #remover tarefas
-function remover_tarefa($conexao,$id){
-    $SQLdeletar = "DELETE FROM tb_tarefa WHERE id = {$id}" ;
+function remover_tarefa($conexao, $id)
+{
+    $SQLdeletar = "DELETE FROM tb_tarefa WHERE id = {$id}";
 
-    mysqli_query($conexao,$SQLdeletar);
+    mysqli_query($conexao, $SQLdeletar);
 }
+
+#gravar anexo
+function gravar_anexo($conexao, $anexo)
+{
+    $SQLgravar = "INSERT INTO tb_anexo (tarefa_id,tarefa_nm,arquivo) 
+        VALUES (
+                    {$anexo['tarefa_id']},
+                    '{$anexo['tarefa_nm']}',
+                    '{$anexo['arquivo']}'
+        )";
+    mysqli_query($conexao, $SQLgravar);
+};
+
+#buscar anexo
+function buscar_anexos($conexao, $tarefa_id)
+{
+    $SQL = "SELECT * FROM tb_anexo 
+        WHERE $tarefa_id = {$tarefa_id}";
+    $SQLresultado = mysqli_query($conexao, $SQL);
+
+    $anexos = [];
+
+    while ($anexo = mysqli_fetch_assoc($SQLresultado)) {
+        $anexos[] = $anexo;
+    };
+
+    return $anexos;
+};

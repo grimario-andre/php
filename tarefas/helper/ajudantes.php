@@ -99,8 +99,8 @@ function tratar_anexo($anexo){
         return false;
     }
 
-    move_uploaded_file($anexo['tpm_name'], "../anexos/{$anexo['name']}");
+    move_uploaded_file($anexo['tmp_name'], "../anexos/{$anexo['name']}");
 
-    return true;
+    return 'true';
 }
 ?>

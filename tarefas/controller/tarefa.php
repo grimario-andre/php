@@ -16,7 +16,7 @@ if (tem_post()) {
             $nome = $_FILES['anexo']['name'];
             $anexo = [
                 'tarefa_id' => $tarefa_id,
-                'nome' => substr($nome,0,-4),
+                'tarefa_nm' => substr($nome,0,-4),
                 'arquivo' => $nome,
             ];
         }else {
@@ -32,5 +32,6 @@ if (tem_post()) {
 }
 
 $tarefa = buscar_tarefa($conexao, $_GET['id']);
+$anexos = buscar_anexos($conexao,$_GET['id']);
 
 include "../view/template_tarefa.php";
