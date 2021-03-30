@@ -1,14 +1,37 @@
-body {
+.container {
+    margin: 0px;
+    width: 100%;
     font-family: Sans-serif;
     color: #333;
 }
 
+#divh1 {
+    margin: 0px;
+    padding: 10px;
+    height: auto;
+    width: auto;
+}
+
 h1 {
     text-align: center;
+    border-bottom: solid;
 }
 
 .erro {
     color: #F44;
+}
+
+.div{
+    margin: 0px;
+    padding: 10px;
+    width: auto;
+    height: auto;
+}
+
+form {
+    margin: 10px;
+    padding: 10px;
+    background-color: hsl(60, 20%, 90%);
 }
 
 fieldset {
@@ -22,8 +45,7 @@ label {
     margin: 10px 0 0 0;
 }
 
-input[type=text],
-textarea {
+input[type=text], textarea {
     width: 100%;
     border: 1px solid #333;
     padding: 3px;
@@ -31,20 +53,54 @@ textarea {
 }
 
 input[type=submit] {
-    float: right;
-    clear: both;
 }
 
 table {
     width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 10px;
 }
 
 table th {
-    background-color: #EEE;
+    background-color: hsl(60, 20%, 90%);
     font-size: 18px;
 }
 
 table td {
     border-bottom: 1px solid #333;
     color: #000;
+}
+
+/*Midia queries*/
+
+@media(max-width:940px) {
+    .container {
+        margin: 0px;
+        width: 655px;
+        font-family: Sans-serif;
+        font-size: 14pt;
+        color: #333;
+    }
+
+    @media(min-width:420px) {
+        .container {
+            margin: 0px;
+            width: 319px;
+            font-family: Sans-serif;
+            font-size: 14pt;
+            color: #333;
+        }
+    }
+
+    @media(min-width:720px) {
+        .container {
+            margin: 0px;
+            width: auto;
+            font-family: Sans-serif;
+            font-size: 14pt;
+            color: #333;
+        }
+    }
+
 }
