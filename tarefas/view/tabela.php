@@ -6,14 +6,19 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/estilo.css">
+ 
+   
+    <!------ Include the above in your HEAD tag ---------->
+
+    
     <title>Gerenciador de tarefas</title>
+    
 </head>
 
-<body>
-    <div class="div">
-        <table>
-            <tr>
+    <div class="container-fluid">
+        <table id="tabtar" class="table table-striped table-bordered" style="width:100%; border-radius: 10px;">
+        <thead>  
+        <tr>
                 <th>Tarefa</th>
                 <th>Descrição</th>
                 <th>Prazo</th>
@@ -21,7 +26,10 @@
                 <th>Concluída</th>
                 <th>Opções</th>
             </tr>
+            </thead>
+           
             <?php foreach ($lista_tarefas as $tarefa) : ?>
+                <tbody>
                 <tr>
                     <td>
                         <a href="controller/tarefa.php?id=<?php echo $tarefa['id']; ?>">
@@ -46,6 +54,7 @@
                     </td>
                 </tr>
             <?php endforeach; ?>
+            </tbody>
         </table>
     </div>
 </body>
